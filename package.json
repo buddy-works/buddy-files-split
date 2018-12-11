@@ -1,0 +1,19 @@
+{
+  "name": "buddy-files-split",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/buddy-works/buddy-files-split.git"
+  },
+  "author": "buddy team",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/buddy-works/buddy-files-split/issues"
+  },
+  "dependencies": {
+    "async": "^2.6.1",
+    "glob": "^7.1.3"
+  }
+}
