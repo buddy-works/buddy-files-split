@@ -1,4 +1,5 @@
 module.exports = function (files, count, done) {
+  count = parseInt(count, 10);
   const result = [];
   for (let i = 0; i < count; i++) {
     result[i] = [];
