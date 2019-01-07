@@ -3,6 +3,7 @@ const async = require('async');
 const split = require('./split');
 const glob = require('glob');
 const order = require('./order');
+const env = require('./env');
 const args = process.argv;
 if (args.length !== 5) {
   console.log('Wrong parameters');
@@ -33,7 +34,7 @@ async.series([
           cb(new Error('Error while reading file contents'));
         } else {
           //split file contents as paths to split
-          files = content.split(/[\n\r]/);
+          files = content.split(/\n/);
           cb();
         }
       });
@@ -74,6 +75,10 @@ async.series([
         cb();
       }
     });
+  },
+  function(cb) {
+    //export env
+    env(splitted, cb);
   }
 ], function (err) {
   if (err) {
@@ -81,14 +86,7 @@ async.series([
     console.error(err.message);
     process.exit(1);
   } else {
-    //output splitted files
-    for (let i = 0; i < splitted.length; i++) {
-      const arr = splitted[i];
-      for (let j = 0; j < arr.length; j++) {
-        console.log(arr[j]);
-      }
-      console.log('');
-    }
+    console.log('Files splitted');
     process.exit(0);
   }
 });
