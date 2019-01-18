@@ -86,7 +86,6 @@ async.series([
     console.error(err.message);
     process.exit(1);
   } else {
-    console.log('Files splitted');
     process.exit(0);
   }
 });
